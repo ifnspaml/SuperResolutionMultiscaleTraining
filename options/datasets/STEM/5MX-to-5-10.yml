@@ -1,0 +1,42 @@
+seed: 1337 # set for determinism, comment out for randomness
+set: 
+  inpath: "C:/data/STEM_NEW/5MX/source"
+
+  original_res: 5
+crops:
+  size: 256
+  crops_per_row_col: 8
+  downsample_with_factor: 4
+bicubic: # include if dataset augmentation by bicubic upsampled pairs is desired
+  crops_per_row_col: 8
+  crops_per_row_upscale: 5
+
+
+split: # set to null if not required
+  train:
+    ratio: 0.8
+    res_digits: 4 # precision of resolution in file names
+    target_res: # can contain multiple linspaces
+      - [5,5,1]
+      - [6,10,5]
+
+
+  val:
+    ratio: 0.1
+    res_digits: 4 # precision of resolution in file names
+    target_res: # can contain multiple linspaces
+      - [5,5,1 ]
+      - [6,10,5]
+
+    generate_subset: 50 # create a smaller subset with n random image pairs
+
+
+  test:
+    ratio: 0.1
+    res_digits: 4 # precision of resolution in file names
+    target_res: # can contain multiple linspaces
+      - [5,5,1 ]
+      - [6,10,5]
+
+
+    filters: [ 0 ] # use filters to explicitly used filters. Otherwise, all are used
